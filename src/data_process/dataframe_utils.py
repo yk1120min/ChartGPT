@@ -9,7 +9,7 @@ def format_dataframe(json_data: dict) -> pd.DataFrame:
     df = pd.DataFrame(json_data['values'])
 
     # datetime列を日時型に変換し、昇順に並び替え
-    df['datetime'] = pd.to_datetime(df['datetime'])
+    df['datetime'] = pd.to_datetime(df['datetime'])  
     df = df.sort_values('datetime')
 
     # open/high/low/close を float に変換

@@ -7,6 +7,7 @@ def fetch_data(symbol="USD/JPY",interval="15min", outputsize=500):
         "symbol": symbol,
         "interval": interval,
         "outputsize": outputsize,
+        "timezone": "Asia/Tokyo",
         "apikey": TWELVE_API_KEY
     }
 
