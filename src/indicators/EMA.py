@@ -22,3 +22,6 @@ def add_ema_slope(df: pd.DataFrame, period: int = 20) -> pd.DataFrame:
     df[slope_column] = df[ema_column].diff()
 
     return df
+
+#.emaで重み付けをしている。
+#.mean()で平均をとる。

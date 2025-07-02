@@ -23,3 +23,7 @@ def add_sma_slope(df: pd.DataFrame, period: int = 20) -> pd.DataFrame:
     df[slope_colums] = df[sma_colums].diff()
 
     return df
+
+##メモ
+#rolling()は移動ウィンドウの処理を行うDataframeクラスの関数
+#f"”文字列は中の変数が展開される

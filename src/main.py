@@ -11,7 +11,7 @@ from indicators.RSI import add_rsi
 
 
 
-# 取得する時間足のリスト
+# 取得する時間足のリスト型(中身はタプル型)
 pairs = [("15min", 200), ("1h", 200), ("4h", 200)]
 multi_df={}
 

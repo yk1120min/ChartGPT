@@ -9,10 +9,10 @@ def add_macd(df: pd.DataFrame, short_period: int = 12, long_period: int = 26, si
     ema_short = df["close"].ewm(span=short_period, adjust=False).mean()
     ema_long = df["close"].ewm(span=long_period, adjust=False).mean()
 
-    # MACDライン
+    # MACDライン(勢いを確認)
     df["macd_line"] = ema_short - ema_long
 
-    # シグナルライン
+    # シグナルライン()
     df["signal_line"] = df["macd_line"].ewm(span=signal_period, adjust=False).mean()
 
     # ヒストグラム（MACDライン - シグナルライン）

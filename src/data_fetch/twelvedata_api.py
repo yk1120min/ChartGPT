@@ -18,3 +18,5 @@ def fetch_data(symbol="USD/JPY",interval="15min", outputsize=500):
     else:
         print(f"エラー：{response.status_code}")
         return None
+    
+

@@ -17,3 +17,10 @@ def format_dataframe(json_data: dict) -> pd.DataFrame:
         df[col] = pd.to_numeric(df[col])
 
     return df
+
+
+##メモ
+#Dataframe型に変換し、表形式でデータを
+#管理する。
+#日時型に変換しないと、昇順にできない。
+#float型に変換しないと、四則演算ができない。

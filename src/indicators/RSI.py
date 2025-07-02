@@ -14,7 +14,11 @@ def add_rsi(df: pd.DataFrame, period: int = 14) -> pd.DataFrame:
 
     rs = avg_gain / avg_loss
 
-    #RSI
+    #RSI(相場の買われすぎ/売られすぎを判断する)
     df[f"rsi_{period}"] = 100 - (100 / (1 + rs))
 
     return df
+
+##メモ
+#.clipはdataframeクラスの関数で、値を指定した範囲に収める。
+#

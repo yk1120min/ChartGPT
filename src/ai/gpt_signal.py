@@ -38,7 +38,7 @@ def get_trade_signal(multi_df: dict[str, pd.DataFrame]) -> str:
 
     full_prompt = """
 
-あなたはプロのFXトレーダーです。
+
 以下の3つの時間足（15分足、1時間足、4時間足）の価格データとテクニカル指標に基づいて、USD/JPYの今後の戦略判断を行ってください。
 目的はデイトレードで約20〜50pipsの利益を狙う短〜中期の戦略を構築することです。
 マルチタイムフレーム分析により、各時間足の整合性から最適なエントリー判断を行ってください。
@@ -90,15 +90,26 @@ def get_trade_signal(multi_df: dict[str, pd.DataFrame]) -> str:
     #print(full_prompt)
 
     try:
+
+        #OpenAiのチャット補完APIを呼び出す関数
         response = client.chat.completions.create(
             model="gpt-4.1-mini",
+            #リスト型で中身は辞書型
             messages=[
                 {"role": "system", "content": "あなたはプロのFXトレーダーです。"},
                 {"role": "user", "content": full_prompt}
             ]
         )
+        #レスポンスは辞書型のような構造化されたものが返ってくるため、AIが返してきた回答だけを取り出す。
         return response.choices[0].message.content.strip()
 
     except Exception as e:
-        print(f"⚠️ ChatGPT呼び出し失敗: {e}")
+        print(f"ChatGPT呼び出し失敗: {e}")
+        #呼び出し関数の戻り値はstrのため、文字列「エラー」を返す。
         return "エラー"
+
+    
+#メモ
+#.append()でリストの末尾に要素を追加する。
+#.strip()で文字列の前後の空白・改行を削除する。(画面を綺麗に)
+#.joinリストの各要素を区切り文字で区切る。
